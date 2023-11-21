@@ -21,8 +21,8 @@ export function SpaceStation({ earthPosition }) {
 
   useFrame(({ clock }) => {
     // Define the orbit parameters for a tighter orbit
-    const radius = 3; // Adjust the radius of the orbit
-    const speed = 0.05; // Adjust the speed of the orbit
+    const radius = 5; // Adjust the radius of the orbit
+    const speed = 0.2; // Adjust the speed of the orbit
 
     // Calculate the new position in a circular orbit around the center point
     const angle = clock.elapsedTime * speed;
@@ -30,7 +30,7 @@ export function SpaceStation({ earthPosition }) {
     const z = Math.sin(angle) * radius;
 
     // Update the position of the space station relative to the Earth
-    stationRef.current.position.set(x - 1, 2, z - 6.5);
+    stationRef.current.position.set(x + 1, 2, z - 6);
 
     // Note: You can adjust the initial position here to start the space station next to the Earth
     /*   stationRef.current.position.set(
@@ -41,7 +41,7 @@ export function SpaceStation({ earthPosition }) {
   });
 
   return (
-    <mesh ref={stationRef} position={[0, 2, 0]} scale={[0.15, 0.15, 0.15]}>
+    <mesh ref={stationRef} position={[0, 2, 0]} scale={[0.1, 0.1, 0.1]}>
       <primitive object={scene} />
     </mesh>
   );
