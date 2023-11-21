@@ -4,6 +4,9 @@ import Earth from "../models/NewEarth";
 import Starfield from "../models/Starfield";
 import SpaceStation from "../models/SpaceStation";
 import { Loader } from "../components";
+import Shuttle from "../models/Shuttle";
+import UFO from "../models/Ufo";
+import Astronaut from "../models/Astronaut";
 
 const Home = () => {
   const [isRotating, setIsRotating] = useState(false);
@@ -23,8 +26,22 @@ const Home = () => {
 
     return [screenScale, screenPosition, rotation];
   };
+  const adjustUFOForScreenSize = () => {
+    let screenScale, screenPosition;
+
+    if (window.innerWidth < 768) {
+      screenScale = [1.5, 1.5, 1.5];
+      screenPosition = [0, -1.5, 0];
+    } else {
+      screenScale = [0.44, 0.44, 0.44];
+      screenPosition = [0, -1, -4.5];
+    }
+
+    return [screenScale, screenPosition];
+  };
 
   const [earthScale, earthPosition, earthRotation] = adjustEarthForScreenSize();
+  const [ufoScale, ufoPosition] = adjustUFOForScreenSize();
 
   return (
     <section className="w-full h-screen relative">
@@ -44,6 +61,8 @@ const Home = () => {
           />
           <Starfield />
           <SpaceStation earthPosition={earthPosition} />
+          <Astronaut />
+          <Shuttle />
           <Earth
             position={earthPosition}
             scale={earthScale}
@@ -52,10 +71,17 @@ const Home = () => {
             setIsRotating={setIsRotating}
             setCurrentStage={setCurrentStage}
           />
+          <UFO
+            position={ufoPosition}
+            scale={ufoScale}
+            isRotating={isRotating}
+            setIsRotating={setIsRotating}
+            rotation={[0, 20, 0]}
+          />
         </Suspense>
         {/* <Plane
-          position={planePosition}
-          scale={planeScale}
+          position={ufoPosition}
+          scale={ufoScale}
           isRotating={isRotating}
           setIsRotating={setIsRotating}
           rotation={[0, 20, 0]}
