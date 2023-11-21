@@ -29,7 +29,7 @@ const Home = () => {
   return (
     <section className="w-full h-screen relative">
       <Canvas
-        className={`w-full h-screen bg-transparent
+        className={`w-full h-screen bg-black
   ${isRotating ? "cursor-grabbing" : "cursor-grab"}`}
         camera={{ near: 0.1, far: 1000, position: [0, 0, 1] }} // Adjust the position values
       >
@@ -42,8 +42,8 @@ const Home = () => {
             groundColor="#000000"
             intensity={1}
           />
-          <SpaceStation />
-          {/* <Starfield isRotating={isRotating} scale={0.2} /> */}
+          <Starfield />
+          <SpaceStation earthPosition={earthPosition} />
           <Earth
             position={earthPosition}
             scale={earthScale}

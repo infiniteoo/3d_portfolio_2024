@@ -1,28 +1,29 @@
-import { useRef } from "react";
-import { useGLTF } from "@react-three/drei";
+// Starfield.jsx
+import React, { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
+import { Stars } from "@react-three/drei";
 
-import starfieldScene from "../assets/3d/starfield.glb";
+const Starfield = () => {
+  const starsRef = useRef();
 
-// 3D Model from: https://sketchfab.com/3d-models/phoenix-bird-844ba0cf144a413ea92c779f18912042
-export function Sky({ isRotating }) {
-  const sky = useGLTF(starfieldScene);
-  const skyRef = useRef();
-
-  // Note: Animation names can be found on the Sketchfab website where the 3D model is hosted.
-  // It ensures smooth animations by making the rotation frame rate-independent.
-  // 'delta' represents the time in seconds since the last frame.
-  useFrame((_, delta) => {
-    if (isRotating) {
-      skyRef.current.rotation.y += 0.25 * delta; // Adjust the rotation speed as needed
-    }
+  useFrame(() => {
+    // Twinkle effect: Randomly change intensity of stars
+    starsRef.current.children.forEach((star) => {
+      star.intensity = Math.sin(Date.now() * 0.00005) * 0.5 + 0.5;
+    });
   });
 
   return (
-    <mesh ref={skyRef}>
-      <primitive object={sky.scene} />
-    </mesh>
+    <Stars
+      ref={starsRef}
+      radius={200}
+      depth={60}
+      count={5000}
+      factor={7}
+      saturation={0}
+      fade
+    />
   );
-}
+};
 
-export default Sky;
+export default Starfield;
