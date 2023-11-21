@@ -1,7 +1,7 @@
 import { useState, Suspense, useRef, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import Earth from "../models/NewEarth";
-import Space from "../models/Space";
+import Starfield from "../models/Starfield";
 import SpaceStation from "../models/SpaceStation";
 import { Loader } from "../components";
 
@@ -42,7 +42,8 @@ const Home = () => {
             groundColor="#000000"
             intensity={1}
           />
-          {/*     <Space isRotating={isRotating} /> */}
+          <SpaceStation />
+          {/* <Starfield isRotating={isRotating} scale={0.2} /> */}
           <Earth
             position={earthPosition}
             scale={earthScale}

@@ -8,7 +8,7 @@ Title: Earth
 */
 
 import React, { useRef, useState, useEffect } from "react";
-import { useGLTF } from "@react-three/drei";
+import { useGLTF, useAnimations } from "@react-three/drei";
 import earthScene from "../assets/3d/earth.glb";
 import { useFrame, useThree } from "@react-three/fiber";
 
@@ -19,12 +19,13 @@ const NewEarth = ({
   currentFocusPoint,
   ...props
 }) => {
-  const { nodes, materials } = useGLTF(earthScene);
+  const { nodes, materials, animations } = useGLTF(earthScene);
   const earthRef = useRef();
   console.log("materials", materials);
   const { gl, viewport } = useThree();
-
+  const { actions } = useAnimations(animations, earthRef);
   const lastX = useRef(0);
+  console.log("actions for earth", actions);
   // Use a ref for rotation speed
   const rotationSpeed = useRef(0);
   // Define a damping factor to control rotation damping
@@ -94,6 +95,9 @@ const NewEarth = ({
       setIsRotating(false);
     }
   };
+  /*  useEffect(() => {
+    actions["Animation"].play();
+  }, []); */
 
   useEffect(() => {
     // Add event listeners for pointer and keyboard events
