@@ -5,11 +5,12 @@ import Starfield from "../models/Starfield";
 import SpaceStation from "../models/SpaceStation";
 import { Loader } from "../components";
 import Shuttle from "../models/Shuttle";
-import UFO from "../models/Ship";
+import Ship from "../models/Ship";
 import HomeInfo from "../components/HomeInfo";
 import { Html } from "@react-three/drei";
 import { soundon, soundoff } from "../assets/icons";
 import sakura from "../assets/sakura.mp3";
+import UFO from "../models/Ufo";
 
 const Home = () => {
   const audioRef = useRef(new Audio(sakura));
@@ -41,7 +42,7 @@ const Home = () => {
 
     return [screenScale, screenPosition, rotation];
   };
-  const adjustUFOForScreenSize = () => {
+  const adjustShipForScreenSize = () => {
     let screenScale, screenPosition;
 
     if (window.innerWidth < 768) {
@@ -56,7 +57,7 @@ const Home = () => {
   };
 
   const [earthScale, earthPosition, earthRotation] = adjustEarthForScreenSize();
-  const [ufoScale, ufoPosition] = adjustUFOForScreenSize();
+  const [shipScale, shipPosition] = adjustShipForScreenSize();
 
   return (
     <section className="w-full h-screen relative">
@@ -84,7 +85,7 @@ const Home = () => {
               <p>Spin the planet w/mouse (left/right keys)</p>
             </div>
           </Html>
-
+          <UFO />
           <Shuttle />
           <Earth
             position={earthPosition}
@@ -94,9 +95,9 @@ const Home = () => {
             setIsRotating={setIsRotating}
             setCurrentStage={setCurrentStage}
           />
-          <UFO
-            position={ufoPosition}
-            scale={ufoScale}
+          <Ship
+            position={shipPosition}
+            scale={shipScale}
             isRotating={isRotating}
             setIsRotating={setIsRotating}
             rotation={[0, 20, 0]}

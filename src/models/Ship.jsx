@@ -7,6 +7,7 @@ const Ship = ({ isRotating, ...props }) => {
   const { scene, animations } = useGLTF(shipScene);
   const { actions } = useAnimations(animations, ref);
   console.log("actions for ship", actions);
+  console.log("ship model", scene);
 
   useEffect(() => {
     if (isRotating) {
@@ -15,6 +16,18 @@ const Ship = ({ isRotating, ...props }) => {
       actions["Animation"].play();
     }
   }, [actions, isRotating]);
+
+  // Adjusting material transparency
+  /*   scene.traverse((child) => {
+    if (child.isMesh) {
+      // Assuming that the model uses MeshStandardMaterial
+      // You might need to adjust this based on the actual material used in your model
+      if (child.material) {
+        child.material.transparent = true;
+        child.material.opacity = 0.5; // Adjust the opacity value (0 to 1)
+      }
+    }
+  }); */
 
   return (
     <mesh ref={ref} {...props}>

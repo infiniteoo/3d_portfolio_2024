@@ -8,10 +8,9 @@ const Projects = () => {
   console.log(projects);
   return (
     <section className="max-container">
-      <h1 className="head-text">
-        My{" "}
+      <h1 className="head-text text-center">
         <span className="blue-gradient_text drop-shadow font-semibold">
-          Projects
+          My Projects
         </span>
       </h1>
 
