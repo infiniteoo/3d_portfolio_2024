@@ -22,7 +22,7 @@ export function Astronaut({ earthPosition }) {
 
   useFrame(({ clock }) => {
     // Define the orbit parameters for a tighter orbit
-    const radius = 8; // Adjust the radius of the orbit
+    const radius = 3; // Adjust the radius of the orbit
     const speed = 0.05; // Adjust the speed of the orbit
 
     // Calculate the new position in a circular orbit around the center point

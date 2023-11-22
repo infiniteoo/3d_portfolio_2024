@@ -31,7 +31,6 @@ const NewEarth = ({
   // Define a damping factor to control rotation damping
   const dampingFactor = 0.95;
   // Tilt angle in radians (adjust as needed)
-  const tiltAngle = 0.2; // Example tilt angle: 0.1 radians
 
   // Handle pointer (mouse or touch) down event
   const handlePointerDown = (event) => {
@@ -137,7 +136,6 @@ const NewEarth = ({
       // When rotating, determine the current stage based on island's orientation
       const rotation = earthRef.current.rotation.y;
       // Apply the tilt angle
-      earthRef.current.rotation.x = tiltAngle;
 
       /**
        * Normalize the rotation value to ensure it stays within the range [0, 2 * Math.PI].

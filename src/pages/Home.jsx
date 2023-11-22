@@ -6,7 +6,7 @@ import SpaceStation from "../models/SpaceStation";
 import { Loader } from "../components";
 import Shuttle from "../models/Shuttle";
 import UFO from "../models/Ufo";
-import Astronaut from "../models/Astronaut";
+import HomeInfo from "../components/HomeInfo";
 
 const Home = () => {
   const [isRotating, setIsRotating] = useState(false);
@@ -45,23 +45,26 @@ const Home = () => {
 
   return (
     <section className="w-full h-screen relative">
+      <div className="absolute bottom-10 left-0 right-0 z-10 flex items-center justify-center">
+        {currentStage && <HomeInfo currentStage={currentStage} />}
+      </div>
       <Canvas
         className={`w-full h-screen bg-black
   ${isRotating ? "cursor-grabbing" : "cursor-grab"}`}
         camera={{ near: 0.1, far: 1000, position: [0, 0, 1] }} // Adjust the position values
       >
         <Suspense fallback={<Loader />}>
-          <directionalLight position={[1, 1, 1]} intensity={2} />
-          <ambientLight itensity={0.5} />
+          <directionalLight position={[-6, 2, 1]} intensity={8} />
+          <ambientLight itensity={0} />
 
           <hemisphereLight
             skyColor="#b1e1ff"
             groundColor="#000000"
-            intensity={1}
+            intensity={0}
           />
           <Starfield />
           <SpaceStation earthPosition={earthPosition} />
-          <Astronaut />
+
           <Shuttle />
           <Earth
             position={earthPosition}
