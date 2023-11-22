@@ -44,7 +44,7 @@ const Contact = () => {
           setLoading(false);
           showAlert({
             show: true,
-            text: "Thank you for your message 😃",
+            text: "Thank you for your message 🚀",
             type: "success",
           });
 
@@ -65,7 +65,7 @@ const Contact = () => {
 
           showAlert({
             show: true,
-            text: "I didn't receive your message 😢",
+            text: "I didn't receive your message 💥",
             type: "danger",
           });
         }

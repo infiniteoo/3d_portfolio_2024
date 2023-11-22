@@ -3,14 +3,14 @@ const Alert = ({ type, text }) => {
     <div className="absolute top-10 left-0 right-0 flex justify-center items-center">
       <div
         className={`p-2 ${
-          type === "danger" ? "bg-red-800" : "bg-blue-800"
+          type === "danger" ? "bg-[#cd2435]" : "bg-[#2b4d7d]"
         } items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex`}
         role="alert"
       >
         <p
           className={`flex rounded-full ${
-            type === "danger" ? "bg-red-500" : "bg-blue-500"
-          } uppercase px-2 py-1 text-xs font-semibold mr-3`}
+            type === "danger" ? "#e56335" : "bg-[#d4ac63]"
+          } uppercase px-2 py-1 text-xs font-semibold mr-3 text-[#f4f5f7]`}
         >
           {type === "danger" ? "Failed" : "Success"}
         </p>

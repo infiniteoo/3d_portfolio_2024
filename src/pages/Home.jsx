@@ -8,11 +8,25 @@ import Shuttle from "../models/Shuttle";
 import UFO from "../models/Ship";
 import HomeInfo from "../components/HomeInfo";
 import { Html } from "@react-three/drei";
+import { soundon, soundoff } from "../assets/icons";
+import sakura from "../assets/sakura.mp3";
 
 const Home = () => {
+  const audioRef = useRef(new Audio(sakura));
+  audioRef.current.volume = 0.4;
+  audioRef.current.loop = true;
   const [isRotating, setIsRotating] = useState(false);
   const [currentStage, setCurrentStage] = useState(1);
+  const [isPlayingMusic, setIsPlayingMusic] = useState(false);
+  useEffect(() => {
+    if (isPlayingMusic) {
+      audioRef.current.play();
+    }
 
+    return () => {
+      audioRef.current.pause();
+    };
+  }, [isPlayingMusic]);
   const adjustEarthForScreenSize = () => {
     let screenScale = null;
     let screenPosition = [0, 0, -10]; // Adjust the third value to bring the Earth closer
@@ -88,14 +102,16 @@ const Home = () => {
             rotation={[0, 20, 0]}
           />
         </Suspense>
-        {/* <Plane
-          position={ufoPosition}
-          scale={ufoScale}
-          isRotating={isRotating}
-          setIsRotating={setIsRotating}
-          rotation={[0, 20, 0]}
-        /> */}
       </Canvas>
+      <div className="absolute bottom-2 left-2">
+        <img
+          src={!isPlayingMusic ? soundoff : soundon}
+          alt="Sound On"
+          className="h-10 w-10 cursor-pointer object-contain"
+          onClick={() => setIsPlayingMusic(!isPlayingMusic)}
+          style={{ color: "#d4ac63" }}
+        />
+      </div>
     </section>
   );
 };
