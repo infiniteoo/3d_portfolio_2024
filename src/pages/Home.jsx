@@ -7,6 +7,7 @@ import { Loader } from "../components";
 import Shuttle from "../models/Shuttle";
 import UFO from "../models/Ship";
 import HomeInfo from "../components/HomeInfo";
+import { Html } from "@react-three/drei";
 
 const Home = () => {
   const [isRotating, setIsRotating] = useState(false);
@@ -50,7 +51,7 @@ const Home = () => {
       </div>
       <Canvas
         className={`w-full h-screen bg-black
-  ${isRotating ? "cursor-grabbing" : "cursor-grab"}`}
+        ${isRotating ? "cursor-grabbing" : "cursor-grab"}`}
         camera={{ near: 0.1, far: 1000, position: [0, 0, 1] }} // Adjust the position values
       >
         <Suspense fallback={<Loader />}>
@@ -64,6 +65,11 @@ const Home = () => {
           />
           <Starfield />
           <SpaceStation earthPosition={earthPosition} />
+          <Html position={[1.6, -0.5, 0]}>
+            <div className="info-board">
+              <p>Spin the planet w/mouse (left/right keys)</p>
+            </div>
+          </Html>
 
           <Shuttle />
           <Earth
