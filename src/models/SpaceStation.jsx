@@ -30,7 +30,7 @@ export function SpaceStation({ earthPosition }) {
     const z = Math.sin(angle) * radius;
 
     // Update the position of the space station relative to the Earth
-    stationRef.current.position.set(x + 1, 2, z - 6);
+    stationRef.current.position.set(x + 0.5, 1.5, z - 6);
 
     // Note: You can adjust the initial position here to start the space station next to the Earth
     /*   stationRef.current.position.set(

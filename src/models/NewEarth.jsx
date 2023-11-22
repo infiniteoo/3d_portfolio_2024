@@ -121,6 +121,7 @@ const NewEarth = ({
 
   // This function is called on each frame update
   useFrame(() => {
+    earthRef.current.rotation.y += 0.0005 * Math.PI;
     // If not rotating, apply damping to slow down the rotation (smoothly)
     if (!isRotating) {
       // Apply damping factor
@@ -132,6 +133,7 @@ const NewEarth = ({
       }
 
       earthRef.current.rotation.y += rotationSpeed.current;
+      //earthRef.current.rotation.y += rotationSpeed.current;
     } else {
       // When rotating, determine the current stage based on island's orientation
       const rotation = earthRef.current.rotation.y;

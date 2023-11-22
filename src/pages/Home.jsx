@@ -5,7 +5,7 @@ import Starfield from "../models/Starfield";
 import SpaceStation from "../models/SpaceStation";
 import { Loader } from "../components";
 import Shuttle from "../models/Shuttle";
-import UFO from "../models/Ufo";
+import UFO from "../models/Ship";
 import HomeInfo from "../components/HomeInfo";
 
 const Home = () => {
