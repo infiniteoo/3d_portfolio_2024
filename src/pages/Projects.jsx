@@ -15,11 +15,14 @@ const Projects = () => {
       </h1>
 
       <p className="text-slate-500 mt-2 leading-relaxed">
-        I've embarked on numerous projects throughout the years, but these are
-        the ones I hold closest to my heart. Many of them are open-source, so if
-        you come across something that piques your interest, feel free to
-        explore the codebase and contribute your ideas for further enhancements.
-        Your collaboration is highly valued!
+        Coding is a passion which I hope to one day turn into a career. When I'm
+        not sleeping or driving a forklift, I'm writing code, studying
+        documentation, or learning new technologies. For the past six months
+        I've been highly engaged in developing warehouse and logistics focused
+        applications, even building an entire WMS. Recently, I've become
+        captivated by 3D web technologies such as Three.js, and plan on
+        venturing down that path to see where it takes me. Check out some of my
+        highlights below!
       </p>
 
       <div className="flex flex-wrap my-20 gap-16">
@@ -41,14 +44,22 @@ const Projects = () => {
                 {project.name}
               </h4>
               <p className="mt-2 text-slate-500">{project.description}</p>
-              <div className="mt-5 flex items-center gap-2 font-poppins">
+              <div className="mt-5 flex items-center gap-2 font-poppins justify-between">
                 <Link
-                  to={project.link}
+                  to={project.demo_link}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-semibold text-blue-600"
                 >
                   Live Link
+                </Link>
+                <Link
+                  to={project.source_code_link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-blue-600"
+                >
+                  Github
                 </Link>
                 <img
                   src={arrow}

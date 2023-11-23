@@ -8,6 +8,7 @@ import {
   html,
   css,
   reactjs,
+  nextjs,
   redux,
   history,
   tailwind,
@@ -30,8 +31,10 @@ import {
   powerding,
   wms,
   photos,
+  supabase,
   twins,
   wms2,
+  graphql,
 } from "../assets";
 
 export const navLinks = [
@@ -68,7 +71,7 @@ const services = [
   },
 ];
 
-const technologies = [
+const skills = [
   {
     name: "HTML 5",
     icon: html,
@@ -81,21 +84,26 @@ const technologies = [
     name: "JavaScript",
     icon: javascript,
   },
+
   {
-    name: "TypeScript",
-    icon: typescript,
-  },
-  {
-    name: "React JS",
+    name: "React JS/Native",
     icon: reactjs,
   },
   {
-    name: "Redux Toolkit",
-    icon: redux,
+    name: "Next JS",
+    icon: nextjs,
+  },
+  {
+    name: "Three JS",
+    icon: threejs,
   },
   {
     name: "Tailwind CSS",
     icon: tailwind,
+  },
+  {
+    name: "Supabase",
+    icon: supabase,
   },
   {
     name: "Node JS",
@@ -105,21 +113,18 @@ const technologies = [
     name: "MongoDB",
     icon: mongodb,
   },
-  {
-    name: "Three JS",
-    icon: threejs,
-  },
+
   {
     name: "git",
     icon: git,
   },
   {
-    name: "figma",
-    icon: figma,
+    name: "TypeScript",
+    icon: typescript,
   },
   {
-    name: "docker",
-    icon: docker,
+    name: "GraphQL",
+    icon: graphql,
   },
 ];
 
@@ -308,4 +313,4 @@ const projects = [
   },
 ];
 
-export { services, technologies, experiences, testimonials, projects };
+export { services, skills, experiences, testimonials, projects };

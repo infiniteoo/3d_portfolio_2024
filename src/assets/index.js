@@ -35,9 +35,15 @@ import wms2 from "./wms2.png";
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
+import supabase from "./icons/supabase.png";
+import nextjs from "./icons/nextjs.svg";
+import graphql from "./icons/graphql.png";
 
 export {
   logo,
+  graphql,
+  nextjs,
+  supabase,
   backend,
   creator,
   mobile,
